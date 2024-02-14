@@ -1,0 +1,19 @@
+{
+    "name": "aatis/http-foundation",
+    "type": "library",
+    "description": "Http foundation component of Aatis",
+    "authors": [
+        {
+            "name": "Maxime Batista",
+            "email": "maximebatista.lycee@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aatis\\HttpFoundation\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.2"
+    }
+}
