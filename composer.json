@@ -1,24 +1,25 @@
 {
-    "name": "aatis/http-foundation",
-    "type": "library",
-    "description": "Http foundation component of Aatis",
-    "authors": [
-        {
-            "name": "Maxime Batista",
-            "email": "maximebatista.lycee@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Aatis\\HttpFoundation\\": "src/"
-        }
-    },
-    "require": {
-        "php": ">=8.2",
-        "psr/http-message": "^2.0"
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.49",
-        "phpstan/phpstan": "^1.10"
+  "name": "aatis/http-foundation",
+  "type": "library",
+  "description": "Http foundation component of Aatis",
+  "authors": [
+    {
+      "name": "Maxime Batista",
+      "email": "maximebatista.lycee@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Aatis\\HttpFoundation\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.2",
+    "psr/http-message": "^2.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.49",
+    "phpstan/phpstan": "^1.10",
+    "symfony/var-dumper": "^7.1"
+  }
 }
