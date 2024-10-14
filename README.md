@@ -50,7 +50,8 @@ $request = Request::createFromGlobals();
 To create a response, you must precise a content which must be a string.
 You can also precise optionals status code and/or headers.
 
-By default, the status code is `200` and the headers are empty.
+> [!NOTE]
+> By default, the status code is `200` and the headers are empty.
 
 ```php
 $response = new Response('Hello, World!');
@@ -70,4 +71,16 @@ It will automatically set the `Content-Type` header to `application/json` and en
 
 ```php
 $response = new JsonResponse(['message' => 'Hello, World!']);
+```
+
+### RedirectResponse
+
+The `RedirectResponse` class is a `Response` with a redirection.
+It will automatically set the `Location` header to the given URL.
+
+> [!NOTE]
+> The status code is `301` by default.
+
+```php
+$response = new RedirectResponse('https://github.com/BatMaxou/aatis-http-foundation');
 ```
