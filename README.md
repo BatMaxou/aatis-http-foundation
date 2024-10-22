@@ -12,6 +12,33 @@ composer require aatis/http-foundation
 
 ## Usage
 
+### File
+
+The `File` class is a representation of a file with it stream resource and the basic methods of the `SplFileInfo` class.
+
+It implements the `FileInterface` interface that contains the additionnal following methods:
+
+- `detach()` to detach the stream resource
+- `close()` to close the stream
+- `tell()` to get the current position into the stream
+- `eof()` to check if the end of the stream has been reached
+- `seek($offset, $whence = SEEK_SET)` to move the position into the stream
+- `rewind()` to move the position to the beginning of the stream
+- `read($length)` to read a part of the stream
+- `getStream()` to get the stream resource
+- `setOverrideName($fileName)` to override the name of the file into the class
+- `write($string)` to write a string into the stream at the current position
+- `append($string)` to write a string at the end of the stream
+- `save($path)` to save the content of the stream into a file at the given path
+- `getContents()` to get the content of the stream as a string
+
+### UploadedFile
+
+The `UploadedFile` class is a `File` but you have to precise the full name of the file into the constructor.
+
+> [!NOTE]
+> Useful to handle $\_FILES and tmp files.
+
 ### ParameterBag
 
 The `ParameterBag` class is a custom array with the following methods:
@@ -26,6 +53,18 @@ The `ParameterBag` class is a custom array with the following methods:
 ### HeaderBag
 
 The `HeaderBag` class is a `ParameterBag` with case insensitive keys.
+
+### ServerBag
+
+The `ServerBag` class is a `ParameterBag` with an additionnal method `getHeaders()` that returns an array of all the headers beginning with `HTTP_` (exepct `HTTP_COOKIE`).
+
+### CookieBag
+
+The `CookieBag` class is a `ParameterBag` with an additionnal method `getInline()` that returns a string of all the cookies in a format that can be used in a `Set-Cookie` header.
+
+### UploadedFileBag
+
+The `UploadedFileBag` class is a `ParameterBag` that only contains `UploadedFile` objects.
 
 ### Message
 

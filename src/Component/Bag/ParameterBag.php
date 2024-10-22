@@ -22,7 +22,7 @@ class ParameterBag
 
     public function get(string $key): mixed
     {
-        return $this->parameters[$key];
+        return $this->parameters[$key] ?? null;
     }
 
     /**
