@@ -93,7 +93,7 @@ class Response implements MessageInterface
         $this->statusCode = $statusCode;
         $this->reasonPhrase = self::REASONS[$statusCode];
         $this->initializeHeaders($headers);
-        $this->setContent($message);
+        $this->content = $message;
     }
 
     public function getStatusCode(): int

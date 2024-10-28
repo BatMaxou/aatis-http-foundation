@@ -12,6 +12,33 @@ composer require aatis/http-foundation
 
 ## Usage
 
+### File
+
+The `File` class is a representation of a file with it stream resource and the basic methods of the `SplFileInfo` class.
+
+It implements the `FileInterface` interface that contains the additionnal following methods:
+
+- `detach()` to detach the stream resource
+- `close()` to close the stream
+- `tell()` to get the current position into the stream
+- `eof()` to check if the end of the stream has been reached
+- `seek($offset, $whence = SEEK_SET)` to move the position into the stream
+- `rewind()` to move the position to the beginning of the stream
+- `read($length)` to read a part of the stream
+- `getStream()` to get the stream resource
+- `setOverrideName($fileName)` to override the name of the file into the class
+- `write($string)` to write a string into the stream at the current position
+- `append($string)` to write a string at the end of the stream
+- `save($path)` to save the content of the stream into a file at the given path
+- `getContents()` to get the content of the stream as a string
+
+### UploadedFile
+
+`UploadedFile` is a `File` but with the full name of the file into the constructor.
+
+> [!NOTE]
+> Useful to handle $\_FILES and tmp files for example.
+
 ### ParameterBag
 
 The `ParameterBag` class is a custom array with the following methods:
@@ -25,7 +52,19 @@ The `ParameterBag` class is a custom array with the following methods:
 
 ### HeaderBag
 
-The `HeaderBag` class is a `ParameterBag` with case insensitive keys.
+`HeaderBag` is a `ParameterBag` with case insensitive keys.
+
+### ServerBag
+
+`ServerBag` is a `ParameterBag` with an additionnal method `getHeaders()` that returns an array of all the headers beginning with `HTTP_` (exepct `HTTP_COOKIE`).
+
+### CookieBag
+
+`CookieBag` is a `ParameterBag` with an additionnal method `getInline()` that returns a string of all the cookies in a format that can be used in a `Set-Cookie` header.
+
+### UploadedFileBag
+
+`UploadedFileBag` is a `ParameterBag` that only contains `UploadedFile` objects.
 
 ### Message
 
@@ -50,7 +89,8 @@ $request = Request::createFromGlobals();
 To create a response, you must precise a content which must be a string.
 You can also precise optionals status code and/or headers.
 
-By default, the status code is `200` and the headers are empty.
+> [!NOTE]
+> By default, the status code is `200` and the headers are empty.
 
 ```php
 $response = new Response('Hello, World!');
@@ -70,4 +110,33 @@ It will automatically set the `Content-Type` header to `application/json` and en
 
 ```php
 $response = new JsonResponse(['message' => 'Hello, World!']);
+```
+
+### RedirectResponse
+
+The `RedirectResponse` class is a `Response` with a redirection.
+It will automatically set the `Location` header to the given URL.
+
+> [!NOTE]
+> The status code is `301` by default.
+
+```php
+$response = new RedirectResponse('https://github.com/BatMaxou/aatis-http-foundation');
+```
+
+### FileResponse
+
+The `FileResponse` class is a `Response` wich take a `FileInterface` or the path of a file as content. It will automatically set:
+
+- the Content-Type header to the mime type of the file
+- the Content-Lenght header to the size of the file
+- the Content-Disposition header with the filename of the file
+
+```php
+$response = new FileResponse('path/to/file');
+
+// OR
+
+$file = new File('path/to/file');
+$response = new FileResponse($file);
 ```
