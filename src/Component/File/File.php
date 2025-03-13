@@ -2,6 +2,7 @@
 
 namespace Aatis\HttpFoundation\Component\File;
 
+use Aatis\HttpFoundation\Exception\FileNotFoundException;
 use Aatis\HttpFoundation\Interface\FileInterface;
 
 class File extends \SplFileInfo implements FileInterface
@@ -14,7 +15,7 @@ class File extends \SplFileInfo implements FileInterface
     public function __construct(string $path)
     {
         if (!is_file($path)) {
-            throw new \FileNotFoundException($path);
+            throw new FileNotFoundException($path);
         }
 
         parent::__construct($path);
