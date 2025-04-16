@@ -3,6 +3,7 @@
 namespace Aatis\HttpFoundation\Component\Bag;
 
 use Aatis\HttpFoundation\Component\File\UploadedFile;
+use Aatis\ParameterBag;
 
 class UploadedFileBag extends ParameterBag
 {

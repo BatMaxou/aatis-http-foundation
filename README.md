@@ -4,6 +4,10 @@
 
 Http foundation package is an additionnal layer that replaces the use of the global variables.
 
+## Dependencies
+
+- `aatis/parameter-bag` (https://github.com/BatMaxou/aatis-parameter-bag)
+
 ## Installation
 
 ```bash
@@ -38,17 +42,6 @@ It implements the `FileInterface` interface that contains the additionnal follow
 
 > [!NOTE]
 > Useful to handle $\_FILES and tmp files for example.
-
-### ParameterBag
-
-The `ParameterBag` class is a custom array with the following methods:
-
-- `has($key)` to check if a key exists
-- `get($key)` to get a value
-- `all()` to get all values as an array
-- `set($key, $value)` to set a value
-- `add($key, $value)` to add a value to an existing or non existing key
-- `remove($key)` to remove a key
 
 ### HeaderBag
 

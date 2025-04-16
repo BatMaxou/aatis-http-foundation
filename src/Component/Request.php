@@ -5,11 +5,11 @@ namespace Aatis\HttpFoundation\Component;
 use Aatis\HttpFoundation\Component\Bag\CookieBag;
 use Aatis\HttpFoundation\Trait\MessageTrait;
 use Aatis\HttpFoundation\Component\Bag\HeaderBag;
-use Aatis\HttpFoundation\Component\Bag\ParameterBag;
 use Aatis\HttpFoundation\Component\Bag\ServerBag;
 use Aatis\HttpFoundation\Component\Bag\UploadedFileBag;
 use Aatis\HttpFoundation\Component\File\UploadedFile;
 use Aatis\HttpFoundation\Interface\MessageInterface;
+use Aatis\ParameterBag;
 
 class Request implements MessageInterface
 {
