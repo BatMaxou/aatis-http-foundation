@@ -2,6 +2,8 @@
 
 namespace Aatis\HttpFoundation\Component\Bag;
 
+use Aatis\ParameterBag;
+
 class HeaderBag extends ParameterBag
 {
     protected const UPPER = '_ABCDEFGHIJKLMNOPQRSTUVWXYZ';

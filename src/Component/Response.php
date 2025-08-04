@@ -2,9 +2,9 @@
 
 namespace Aatis\HttpFoundation\Component;
 
-use Aatis\HttpFoundation\Trait\MessageTrait;
 use Aatis\HttpFoundation\Component\Bag\HeaderBag;
 use Aatis\HttpFoundation\Interface\MessageInterface;
+use Aatis\HttpFoundation\Trait\MessageTrait;
 
 class Response implements MessageInterface
 {

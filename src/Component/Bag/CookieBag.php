@@ -2,6 +2,8 @@
 
 namespace Aatis\HttpFoundation\Component\Bag;
 
+use Aatis\ParameterBag;
+
 class CookieBag extends ParameterBag
 {
     public function getInline(): string
